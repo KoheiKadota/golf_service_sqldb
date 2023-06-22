@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>G O L F   P A R T Y</title>
+  </head>
+
+
+  <!-- /* タイトル -->
+  <body>
+
+    <nav>
+      <ul class="nav-list">
+      <div id="btn1"><li class="nav-item"><a href="index.html">TOP</a></li></div>
+      <div id="btn2"><li class="nav-item"><a href="about.html">ABOUT</a></li></div>
+      <div id="btn3"><li class="nav-item"><a href="service.php">SERVICE</a></li></div>
+      <div id="btn4"><li class="nav-item"><a href="#course">COURSE</a></li></div>
+      <div id="btn5"><li class="nav-item"><a href="#contact">CONTACT</a></li></div>
+      </ul>
+    </nav>
+
+    <div id="about.html">
+      <p class="title"> A B O U T</p>
+
+      <div class="bg" style="background:url(img/friends.jpg);"></div>
+
+
+<!-- /* ABOUTのメッセージ */ -->
+<div class="message">
+<div class="about fadeIn">
+<p>夢中になろう</p>
+<p> 大切な仲間と時間を過ごそう</p>
+<p>  自然の中で心を解放しよう</p>
+</div>
+
+<div class="about_s fadeIn">
+<p>夢中になる人と人が繋がり、それぞれの想いを理解し、共感し合うことで人間関係が出来上がる。共通の目標に向かって協力し、夢中になる体験は、共有の記憶を作り出す。</p>
+<p>ゴルフは初めて会う人でも親密に仲良くなれるスポーツ。</p>
+  <p>特別な共体験は、人々の絆を深める。広大な緑地と豊かな芝生、陽光、季節の多様な景観、風の音、鳥のさえずり、これらはプレーヤーをリラックスさせ、心を解放させる。</p>
+</div>
+</div>
+
+
+
+
+        <!-- /* ボタン(btn)をクリックすると次のページへ遷移 -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            $("#btn1").click(function () {
+              window.location.href = "index.html";
+            });
+
+            $("#btn2").click(function () {
+              window.location.href = "about.html";
+            });
+
+              $("#btn3").click(function () {
+                window.location.href = "service.html";
+              });
+
+              $("#btn4").click(function () {
+                window.location.href = "course.html";
+              });
+
+              $("#btn5").click(function () {
+                window.location.href = "contact.html";
+              });
+
+        </script>
+
+    </div>
+  </body>
+</html>

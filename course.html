@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>G O L F   P A R T Y</title>
+  </head>
+
+
+  <!-- /* タイトル -->
+<body>
+  <div id="page-course">
+  </div>
+
+
+
+    <nav>
+      <ul class="nav-list">
+      <div id="btn1"><li class="nav-item"><a href="index.html">TOP</a></li></div>
+      <div id="btn2"><li class="nav-item"><a href="about.html">ABOUT</a></li></div>
+      <div id="btn3"><li class="nav-item"><a href="service.php">SERVICE</a></li></div>
+      <div id="btn4"><li class="nav-item"><a href="#course">COURSE</a></li></div>
+      <div id="btn5"><li class="nav-item"><a href="#contact">CONTACT</a></li></div>
+      </ul>
+    </nav>
+
+    <div id="course.html">
+      <p class="title"> C O U R S E</p>
+    </div>
+
+      <div class="bg"  style="background:url(img/skyview.jpg);"></div>
+    
+
+        <!-- /* ボタン(btn)をクリックすると次のページへ遷移 -->
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            $("#btn1").click(function () {
+              window.location.href = "index.html";
+            });
+
+            $("#btn2").click(function () {
+              window.location.href = "about.html";
+            });
+
+              $("#btn3").click(function () {
+                window.location.href = "service.html";
+              });
+
+              $("#btn4").click(function () {
+                window.location.href = "course.html";
+              });
+
+              $("#btn5").click(function () {
+                window.location.href = "contact.html";
+              });
+
+        </script>
+
+
+<style>
+  html {
+    height: 100%;
+  }
+
+  body {
+    min-height: 100%;
+    color: #333;
+    background-color: #fafafa;
+  }
+
+
+  .header {
+    width: 35%;
+    background-color: #0db816;
+
+  }
+
+  .header__title {
+    line-height: 60px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .search {
+    overflow: hidden;
+    margin-bottom: 50px;
+    background: #fff;
+    box-shadow: 0 1px 5px #ccc;
+  }
+
+  .search__text {
+    width: 100%;
+  }
+
+  .search__text__input {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    line-height: 3em;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #eee;
+    font-size: 20px;
+  }
+
+  .search__btn {
+    display: block;
+    margin: 0 auto 20px;
+    padding: 0 20px;
+    line-height: 40px;
+    border: none;
+    font-size: 18px;
+    color: #fff;
+    background-color: #0db816;
+  }
+
+  .search__btn:hover {
+    background-color: #0db816;
+  }
+
+  .lists {
+    overflow: hidden;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+.glass {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border-radius: 10px;
+}
+
+
+  .lists__item {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 25%;
+    padding: 20px 20px 20px 0;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .lists__item__inner {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .lists__item__link {
+    display: block;
+    text-decoration: none;
+  }
+
+  .lists__item__img {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 150px;
+    -webkit-box-shadow: 0 1px 5px #ccc;
+    box-shadow: 0 1px 5px #ccc;
+  }
+
+  .lists__item__detail {
+    margin-bottom: 10px;
+    padding-left: 5em;
+    text-indent: -5em;
+    line-height: 1.5em;
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .message {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 767px) {
+    .lists__item {
+      width: 33.33%;
+    }
+  }
+
+  @media screen and (max-width: 479px) {
+    .lists__item {
+      width: 50%;
+    }
+  }
+</style>
+
+  <div class="wrap">
+    <div class="container">
+      <div class="header">
+        <p class="header__title">⛳️</p>
+      </div>
+      <div class="search">
+        <div class="search__text">
+          <input type="text" id="js-search-word" class="search__text__input" value="" placeholder="ゴルフ場検索" />
+        </div>
+        <button id="js-search-button" class="search__btn">検索</button>
+      </div>
+      <ul class="lists glass"></ul>
+    </div>
+  </div>
+
+   <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script>
+    $(function () {
+      var pageNum = 0;
+      var prevWord = "";
+      $("#js-search-button").on("click", function () {
+        pageNum = pageNum + 1;
+        var keyWord = $("#js-search-word").val();
+        if (prevWord !== keyWord) {
+          pageNum = 1;
+          $(".lists").empty();
+          prevWord = keyWord;
+        }
+        $.ajax({
+          type: "GET",
+            url: "https://app.rakuten.co.jp/services/api/Gora/GoraGolfCourseSearch/20170623",
+            data: {
+              applicationId: "1064576920947194768",
+              format: "json",
+              areaCode: 0,   // エリアコード40は福岡,0は全国
+              page: 1,
+              hits: 10,
+              keyword: convertShiftJISToUTF8(keyWord),
+          },
+        }).done(function (data) {
+          if (data.count > 0) {
+            $(".comment").remove();
+            var list = "";
+            for (var i = 0; i < data.Items.length; i++) {
+              list +=
+                `<li class=lists__item>` +
+                `<div class=lists__item__inner>` +
+                `<a href=${data.Items[i].Item.golfCourseDetailUrl} class=lists__item__link target=_blank>` +
+                `<img src=${data.Items[i].Item.golfCourseImageUrl} class=lists__item__img alt>` +
+                `<p class=lists__item__detail>ゴルフ場： ${data.Items[i].Item.golfCourseName}</p>` +
+                `<p class=lists__item__detail>所在地 : ${data.Items[i].Item.address}</p>` +
+                `</a>` +
+                `</div>` +
+                `</li>`;
+            }
+            $(".lists").prepend(list);
+          } else {
+            $(".comment").remove();
+            $(".lists").before("<div class='comment'></div>");
+            $(".comment").html(
+              "<p class='message'>検索結果が見つかりませんでした。<br>別のキーワードで検索して下さい。</p>"
+            );
+          }
+        });
+      });
+    });
+
+    // ShiftJisをUTF8に変換させるコード
+
+        function convertShiftJISToUTF8(shiftJISString) {
+          // Shift-JISをUTF-8に変換
+          var utf8Array = new TextEncoder().encode(shiftJISString);
+
+          // UTF-8バイト列を文字列に変換
+          var utf8String = new TextDecoder("utf-8").decode(utf8Array);
+
+          return utf8String;
+        }
+
+</script>
+
+
+</body>
+</html>

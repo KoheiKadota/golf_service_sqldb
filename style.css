@@ -1,0 +1,124 @@
+.title {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  z-index: 1;
+  color: aliceblue;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: flex-end;
+  top: 15px;
+  font-size: 21px;
+  color: #19d608;
+  list-style-type: none;
+}
+
+.nav-item {
+  margin: 0 0 0 50px;
+}
+
+.nav-item {
+  color:aliceblue
+}
+
+a {
+  color: white;
+}
+
+
+.message
+{
+ -webkit-text-stroke: 0.4px #06179b;
+}
+
+
+
+/* 文字がふわっと */
+.fadeIn {
+  animation-name: fadeInAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+.bg {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#page-course{
+  background-image: url(img/skyview.jpg);
+    z-index: -1;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+}
+
+
+
+
+/* ABOUTのメッセージ */
+.about {
+  position: absolute;
+  z-index: 1;
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+    top: 35%;
+      left: 18%;
+      transform: translate(-50%, -50%);
+}
+
+/* ABOUTのメッセージ */
+.about_s {
+  position: absolute;
+  z-index: 1;
+  color:white;
+  font-size: 23px;
+  font-weight: bold;
+  top: 72%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* 
+.bg {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+} */
