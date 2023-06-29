@@ -1,12 +1,6 @@
 <?php
-// var_dump($_POST);
-// exit();
-// POSTデータ確認
-
 include('functions.php');
-$pdo = connect_to_db();
-
-// NGだった時の条件
+// 入力項目のチェック
 if (
   !isset($_POST['date']) || $_POST['date'] === '' ||
   !isset($_POST['course']) || $_POST['course'] === '' ||
@@ -19,10 +13,9 @@ if (
   !isset($_POST['best_score']) || $_POST['best_score'] === '' ||
   !isset($_POST['career']) || $_POST['career'] === '' || 
   !isset($_POST['residence']) || $_POST['residence'] === '' || 
-  !isset($_POST['free']) || $_POST['free'] === ''   
-
+  !isset($_POST['id']) || $_POST['id'] === ''
 ) {
-  exit('データが足りません。。');
+  exit('paramError');
 }
 
 $date = $_POST['date'];
@@ -37,28 +30,14 @@ $best_score = $_POST['best_score'];
 $career = $_POST['career'];
 $residence = $_POST['residence'];
 $free = $_POST['free'];
-
-
-// 各種項目設定
-$dbn ='mysql:dbname=golf_service;charset=utf8mb4;port=3306;host=localhost';
-$user = 'root';
-$pwd = '';
+$id = $_POST['id'];
 
 // DB接続
-try {
-  $pdo = new PDO($dbn, $user, $pwd);
-} catch (PDOException $e) {
-  echo json_encode(["db error" => "{$e->getMessage()}"]);
-  exit();
-}
+$pdo = connect_to_db();
 
-// SQL作成&実行
+$sql = 'UPDATE profile SET date=:date, course=:course,  name=:name, name_kana=:name_kana, gender=:gender, age=:age, email=:email, ave_score=:ave_score, career=:career, residence=:residence, free=:free, created_at=:created_at,updated_at=now() WHERE id=:id';
 
-$sql = 'INSERT INTO profile (id, date, course, name, name_kana, gender, age, email, ave_score, best_score, career, residence, free, created_at, updated_at) VALUES (NULL, :date, :course, :name, :name_kana, :gender, :age, :email, :ave_score, :best_score, :career, :residence, :free, now(), now())';
- 
 $stmt = $pdo->prepare($sql);
-
-// バインド変数を設定
 $stmt->bindValue(':date', $date, PDO::PARAM_STR);
 $stmt->bindValue(':course', $course, PDO::PARAM_STR);
 $stmt->bindValue(':name', $name, PDO::PARAM_STR);
@@ -71,9 +50,9 @@ $stmt->bindValue(':best_score', $best_score, PDO::PARAM_STR);
 $stmt->bindValue(':career', $career, PDO::PARAM_STR);
 $stmt->bindValue(':residence', $residence, PDO::PARAM_STR);
 $stmt->bindValue(':free', $free, PDO::PARAM_STR);
+$stmt->bindValue(':id', $id, PDO::PARAM_STR);
 
-
-// SQL実行（実行に失敗すると `sql error ...` が出力される）
+var_dump($id);
 try {
   $status = $stmt->execute();
 } catch (PDOException $e) {
@@ -81,7 +60,8 @@ try {
   exit();
 }
 
-
-// データ入力画面に移動する
-header("Location:service.php");
+header('Location:todo_read.php');
 exit();
+
+?>
+
